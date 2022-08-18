@@ -1,3 +1,1 @@
-current="$(date +'%s')"
-predicted="$(echo ${1} | xargs -I{} date --date={} +"%s")"
-echo $(expr $predicted - $current)
+expr "$(echo ${1} | xargs -I{} date --date={} +"%s")" - "$(date +'%s')"
