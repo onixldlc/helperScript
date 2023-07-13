@@ -1,4 +1,5 @@
 @echo off
+echo:
 for %%x in (%*) do (
   for /F "tokens=*" %%n in ('certutil -hashfile "%%~x" MD5') do (
     set out = %%n
