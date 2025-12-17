@@ -656,7 +656,7 @@ echo "📊 Stats:  ${#STATES[@]} locations, ${#COMPANIES[@]} companies"
 echo "=========================================="
 
 # Generate the certificate
-openssl req -x509 -newkey rsa: 4096 \
+openssl req -x509 -newkey rsa:4096 \
     -keyout "${PREFIX}_key.pem" \
     -out "${PREFIX}_cert.pem" \
     -sha256 \
