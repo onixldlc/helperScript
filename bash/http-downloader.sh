@@ -1,0 +1,1 @@
+u="http://example.com:8000/somefile.tar.gz";h="${u#http://}";h="${h%%/*}";p="/${u#http://*/}";port="${h##*:}";[[ "$port" == "$h" ]]&&port=80;h="${h%%:*}";exec 3<>/dev/tcp/$h/$port;printf 'GET %s HTTP/1.0\r\nHost: %s\r\nConnection: close\r\n\r\n' "$p" "$h" >&3;while IFS= read -r l<&3;do [[ "$l" == $'\r'|| -z "$l" ]]&&break;done;cat<&3>$(basename $p);exec 3>&-
